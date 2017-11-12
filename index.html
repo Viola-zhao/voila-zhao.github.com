@@ -345,41 +345,18 @@
 
       
         
-          
-            <p>这是一场由for循环触发的感想。哪里写的不好欢迎拍砖。</p>
+          <p>这是一个由for循环触发的感想。哪里写的不好欢迎拍砖。</p>
 <h2 id="重构片段一：循环"><a href="#重构片段一：循环" class="headerlink" title="重构片段一：循环"></a>重构片段一：循环</h2><p>举例：之前习惯顺着逻辑思路一层层往下写</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function test1(arr) &#123;</div><div class="line">    for (let i = 1; i &lt; arr.length; i++) &#123;</div><div class="line">        arr[i] *= 2</div><div class="line">        if (arr[i] % 2 === 0) &#123;</div><div class="line">            doSomething(arr[i])</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>声明式方式重写这段代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function test1(arr) &#123;</div><div class="line">    const evenNumbers = n =&gt; n % 2 === 0</div><div class="line"></div><div class="line">    arr.slice(1)</div><div class="line">       .map(v =&gt; v * 2)</div><div class="line">       .filter(evenNumbers)</div><div class="line">       .forEach(v =&gt; doSomething(v))    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>紧接着上面demo看</p>
-</blockquote>
-<h3 id="重构片段二：常用的处理数组的方法"><a href="#重构片段二：常用的处理数组的方法" class="headerlink" title="重构片段二：常用的处理数组的方法"></a>重构片段二：常用的处理数组的方法</h3><h5 id="slice-—-arrayObject-slice-start-end"><a href="#slice-—-arrayObject-slice-start-end" class="headerlink" title="slice —  arrayObject.slice(start,end)"></a>slice —  arrayObject.slice(start,end)</h5><blockquote>
-<p>slice 返回一个子数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。</p>
-<p>不设定end参数，表示获取从start 到 数组结尾的所有元素。</p>
-</blockquote>
-<h5 id="map"><a href="#map" class="headerlink" title="map"></a>map</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.map([1, 2, 3], function(num)&#123; return num * 3; &#125;);</div><div class="line">=&gt; [3, 6, 9]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>通过对数组里的每个元素调用转换函数(iteratee迭代器)生成一个与之相对应的数组。</p>
-</blockquote>
-<h5 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h5><blockquote>
-<p>遍历数组中的每个值，返回所有通过函数真值检测的元素所组成的数组。</p>
-</blockquote>
-<h3 id="重构片段三：使用箭头函数"><a href="#重构片段三：使用箭头函数" class="headerlink" title="重构片段三：使用箭头函数"></a>重构片段三：使用箭头函数</h3><blockquote>
-<p>箭头函数是es6中新语法</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var reflect = function(value) &#123;</div><div class="line">    return value;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>等同于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">let reflect = value =&gt; value;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>let也是es6新语法，我理解的是它比var更严谨，因为let声明的变量只在所在的代码块内有效</p>
-<p>如果只有一个表达式,大括号{…}和return都可以省略.</p>
-<p>那么问题来了- 我们为什么使用箭头函数？</p>
-<p>我们暂且不谈<strong><em>代码更加简洁</em></strong> 这个事，更重要的是，this总是指代外层调用对象，这样就不再需要var that = this.</p>
-</blockquote>
-<p>[]: </p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/12/如何更优雅的写for循环/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

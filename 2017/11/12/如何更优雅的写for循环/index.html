@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="这是一场由for循环触发的感想。哪里写的不好欢迎拍砖。 重构片段一：循环举例：之前习惯顺着逻辑思路一层层往下写 12345678function test1(arr) &amp;#123;    for (let i = 1; i &amp;lt; arr.length; i++) &amp;#123;        arr[i] *= 2        if (arr[i] % 2 === 0) &amp;#123;">
+<meta name="description" content="这是一个由for循环触发的感想。哪里写的不好欢迎拍砖。 重构片段一：循环举例：之前习惯顺着逻辑思路一层层往下写 12345678function test1(arr) &amp;#123;    for (let i = 1; i &amp;lt; arr.length; i++) &amp;#123;        arr[i] *= 2        if (arr[i] % 2 === 0) &amp;#123;">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何更优雅的写for循环">
 <meta property="og:url" content="51viola.top/2017/11/12/如何更优雅的写for循环/index.html">
 <meta property="og:site_name" content="Viola&#39;s blog">
-<meta property="og:description" content="这是一场由for循环触发的感想。哪里写的不好欢迎拍砖。 重构片段一：循环举例：之前习惯顺着逻辑思路一层层往下写 12345678function test1(arr) &amp;#123;    for (let i = 1; i &amp;lt; arr.length; i++) &amp;#123;        arr[i] *= 2        if (arr[i] % 2 === 0) &amp;#123;">
-<meta property="og:updated_time" content="2017-11-12T07:50:38.000Z">
+<meta property="og:description" content="这是一个由for循环触发的感想。哪里写的不好欢迎拍砖。 重构片段一：循环举例：之前习惯顺着逻辑思路一层层往下写 12345678function test1(arr) &amp;#123;    for (let i = 1; i &amp;lt; arr.length; i++) &amp;#123;        arr[i] *= 2        if (arr[i] % 2 === 0) &amp;#123;">
+<meta property="og:updated_time" content="2017-11-12T07:56:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何更优雅的写for循环">
-<meta name="twitter:description" content="这是一场由for循环触发的感想。哪里写的不好欢迎拍砖。 重构片段一：循环举例：之前习惯顺着逻辑思路一层层往下写 12345678function test1(arr) &amp;#123;    for (let i = 1; i &amp;lt; arr.length; i++) &amp;#123;        arr[i] *= 2        if (arr[i] % 2 === 0) &amp;#123;">
+<meta name="twitter:description" content="这是一个由for循环触发的感想。哪里写的不好欢迎拍砖。 重构片段一：循环举例：之前习惯顺着逻辑思路一层层往下写 12345678function test1(arr) &amp;#123;    for (let i = 1; i &amp;lt; arr.length; i++) &amp;#123;        arr[i] *= 2        if (arr[i] % 2 === 0) &amp;#123;">
 
 
 
@@ -347,11 +347,12 @@
       
 
       
-        <p>这是一场由for循环触发的感想。哪里写的不好欢迎拍砖。</p>
+        <p>这是一个由for循环触发的感想。哪里写的不好欢迎拍砖。</p>
 <h2 id="重构片段一：循环"><a href="#重构片段一：循环" class="headerlink" title="重构片段一：循环"></a>重构片段一：循环</h2><p>举例：之前习惯顺着逻辑思路一层层往下写</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function test1(arr) &#123;</div><div class="line">    for (let i = 1; i &lt; arr.length; i++) &#123;</div><div class="line">        arr[i] *= 2</div><div class="line">        if (arr[i] % 2 === 0) &#123;</div><div class="line">            doSomething(arr[i])</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>声明式方式重写这段代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function test1(arr) &#123;</div><div class="line">    const evenNumbers = n =&gt; n % 2 === 0</div><div class="line"></div><div class="line">    arr.slice(1)</div><div class="line">       .map(v =&gt; v * 2)</div><div class="line">       .filter(evenNumbers)</div><div class="line">       .forEach(v =&gt; doSomething(v))    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <blockquote>
 <p>紧接着上面demo看</p>
 </blockquote>
